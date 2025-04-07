@@ -12,7 +12,7 @@ export default function App() {
 Hi, I'm J <span>Aswanth</span><br/>
 Kumar
 </h1>
-<img src='/Portfolio/images/Profilepic.png' className='img-pic' width={350} height={350} />
+
  </div>
     </>
   )  
