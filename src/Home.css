@@ -1,0 +1,131 @@
+.container {
+  background-color: black;
+  color: white;
+font-style: italic;
+  min-height: 100vh;
+  max-width: 100%;
+  position: relative;
+  padding: 50px 20px; /* Adds spacing instead of 'top' */
+}
+
+.container h2 {
+  margin-top: 150px; /* Adjusted for better spacing */
+  margin-left: 80px;
+}
+
+.container h1 {
+  font-size: 55px;
+  margin-left: 80px;
+}
+
+.container h1 span {
+  color: aquamarine;
+}
+
+/* 🔹 Responsive Styles for Small Screens */
+@media (max-width: 576px) { 
+  .container {
+      max-height: 500px;
+      padding: 30px 15px; /* Less padding for small screens */
+      text-align: center; /* Centers text on small screens */
+  }
+
+  .container h2 {
+      margin-top: 150px; /* Adjust for better spacing */
+      margin-left: 0;
+      font-size: 16px;
+      font-style: italic;
+  }
+
+  .container h1 {
+      font-size: 35px; /* Smaller font for small screens */
+      margin-left: 0;
+      font-family:'Times New Roman', Times, serif;
+  }
+}
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  
+  animation: fadeSlide 1s ease-in-out forwards;
+}
+.animate-name {
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 25px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+.img-pic{
+  position: relative;
+  left: 63%;
+  bottom: 275px;
+}
+@media (max-width: 576px){
+  .img-pic
+  {
+    position: relative;
+left:0px; 
+top: 50px;
+    width: 250px;
+    height: 300px;
+
+  }
+}
+@media (max-width:768px) {
+
+  .img-pic
+  {
+    position: relative;
+left: 20%;  
+top: 10px;
+    width: 60%;
+    height: 45%;
+  }
+}
+.img-pic{
+  border-radius: 10px;
+  border: none;
+  
+}
+@media (max-width: 834px) {
+  /* Styles for most iPads */
+  .img-pic
+  {
+    position: relative;
+left: 20%;  
+top: 10px;
+    width: 60%;
+    height: 30%;
+  }
+  .container h2,h1{
+    margin-top: 10px;
+  }
+} 
+
