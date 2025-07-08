@@ -1,32 +1,36 @@
+/* ========= General Layout ========= */
 .container {
   background-color: black;
   color: white;
-font-style: italic;
+  font-style: italic;
   min-height: 100vh;
   max-width: 100%;
   position: relative;
-  padding: 50px 20px; /* Adds spacing instead of 'top' */
+  animation: fadeSlide 1s ease-in-out forwards;
+  padding: 30px 15px;
 }
 
+/* ========= Typography ========= */
 .container h2 {
-  margin-top: 150px; /* Adjusted for better spacing */
+  margin-top: 150px;
   margin-left: 80px;
+  font-style: italic;
 }
 
 .container h1 {
   font-size: 55px;
   margin-left: 80px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .container h1 span {
   color: aquamarine;
 }
-/* Custom Styles */
-.home-section {
-  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
-  padding: 80px 0;
-  position: relative;
-  overflow: hidden;
+
+.section-subtitle {
+  letter-spacing: 3px;
+  font-weight: 300;
+  font-size: 1.1rem;
 }
 
 .hero-title {
@@ -35,6 +39,7 @@ font-style: italic;
   margin-bottom: 1.5rem;
 }
 
+/* ========= Highlight Effect ========= */
 .highlight {
   color: #00ff88;
   position: relative;
@@ -59,25 +64,14 @@ font-style: italic;
   transform-origin: left;
 }
 
-.section-subtitle {
-  letter-spacing: 3px;
-  font-weight: 300;
-  font-size: 1.1rem;
+/* ========= Hero Section Background ========= */
+.home-section {
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  position: relative;
+  overflow: hidden;
 }
 
-.profile-image {
-  max-width: 400px;
-  border-radius: 50%;
-  border: 4px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
-  transition: all 0.3s ease;
-}
-
-.profile-image:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 50px rgba(0, 255, 136, 0.5);
-}
-
+/* ========= Buttons / CTA ========= */
 .cta-button {
   padding: 12px 30px;
   border-radius: 30px;
@@ -109,68 +103,31 @@ font-style: italic;
   transform: translateY(-3px);
 }
 
-/* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
+/* ========= Profile Image ========= */
 .profile-image {
+  max-width: 400px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
   animation: float 6s ease-in-out infinite;
+  transition: all 0.3s ease;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .profile-image {
-    max-width: 300px;
-    margin-bottom: 40px;
-  }
-  
-  .cta-container {
-    flex-direction: column;
-    gap: 15px;
-  }
+.profile-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 50px rgba(0, 255, 136, 0.5);
 }
 
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
+/* ========= Animations ========= */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  .section-subtitle {
-    font-size: 0.9rem;
-  }
-  
-  .profile-image {
-    max-width: 250px;
+  50% {
+    transform: translateY(-20px);
   }
 }
 
-/* 🔹 Responsive Styles for Small Screens */
-@media (max-width: 576px) { 
-  .container {
-      max-height: 500px;
-      padding: 30px 15px; /* Less padding for small screens */
-      text-align: center; /* Centers text on small screens */
-  }
-
-  .container h2 {
-      margin-top: 150px; /* Adjust for better spacing */
-      margin-left: 0;
-      font-size: 16px;
-      font-style: italic;
-  }
-
-  .container h1 {
-      font-size: 35px; /* Smaller font for small screens */
-      margin-left: 0;
-      font-family:'Times New Roman', Times, serif;
-  }
-}
 @keyframes fadeSlide {
   0% {
     opacity: 0;
@@ -182,10 +139,13 @@ font-style: italic;
   }
 }
 
-.container {
-  
-  animation: fadeSlide 1s ease-in-out forwards;
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
+
+/* ========= Animated Brand Name ========= */
 .animate-name {
   text-transform: uppercase;
   background-image: linear-gradient(
@@ -205,54 +165,83 @@ font-style: italic;
   font-size: 25px;
 }
 
-@keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
-}
-.img-pic{
+/* ========= Custom Image Styling ========= */
+.img-pic {
+  border-radius: 10px;
+  border: none;
   position: relative;
   left: 63%;
   bottom: 275px;
 }
-@media (max-width: 576px){
-  .img-pic
-  {
-    position: relative;
-left:0px; 
-top: 50px;
+
+/* ========= Responsive Media Queries ========= */
+
+/* 📱 Extra Small Devices */
+@media (max-width: 576px) {
+  .container {
+    padding: 20px 10px;
+    text-align: center;
+    max-height: unset;
+  }
+
+  .container h2 {
+    margin-top: 120px;
+    margin-left: 0;
+    font-size: 16px;
+  }
+
+  .container h1 {
+    font-size: 35px;
+    margin-left: 0;
+  }
+
+  .img-pic {
+    left: 0;
+    top: 50px;
     width: 250px;
     height: 300px;
-
   }
 }
-@media (max-width:768px) {
 
-  .img-pic
-  {
-    position: relative;
-left: 20%;  
-top: 10px;
+/* 📱 Tablets */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .profile-image {
+    max-width: 250px;
+    margin-bottom: 30px;
+  }
+
+  .cta-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .img-pic {
+    left: 20%;
+    top: 10px;
     width: 60%;
     height: 45%;
   }
 }
-.img-pic{
-  border-radius: 10px;
-  border: none;
-  
-}
+
+/* 🧳 iPads / Medium Screens */
 @media (max-width: 834px) {
-  /* Styles for most iPads */
-  .img-pic
-  {
-    position: relative;
-left: 20%;  
-top: 10px;
+  .img-pic {
+    left: 20%;
+    top: 10px;
     width: 60%;
     height: 30%;
   }
-  .container h2,h1{
+
+  .container h2,
+  .container h1 {
     margin-top: 10px;
   }
-} 
+}

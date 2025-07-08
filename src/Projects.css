@@ -84,7 +84,7 @@
     overflow: hidden;
     top: 0;
     left: 0;
-    background-color: #0a3cff;
+
     border-radius: inherit;
     height: 100%;
     width: 100%;
@@ -94,14 +94,11 @@
     transition: all 0.64s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.card:hover::before {
-    opacity: 1;
-    transform: skew(0deg);
-    clip-path: circle(140.9% at 0 0);
-}
+
 
 .card:hover .content {
     color: #ffffff;
+    background-color: blue;
 }
 
 .content, .para, button {
