@@ -9,6 +9,7 @@ import weatherImg from "../images/Weather (2).png";
 import TravelImg from "../images/Travel-Agency.png";
 import SaloonImg from '../images/Spa-Saloon.png';
 import petImg from "../images/Pet-Shop.png";
+import akImg from "../images/Photo_Ak.jpg";
 import Footer from "./Footer";
 
 export default function Projects() {
@@ -50,6 +51,11 @@ export default function Projects() {
       Image: petImg,
       description: "A playful and informative pet shop landing page using Next.js and Bootstrap. Features include pet categories, offers, and contact details.",
       link: "https://aswanthkumar486.github.io/Out-Pet-Shop/",
+    },{
+      name:"Blog Website",
+      Image:akImg,
+      description:"Developed a full-stack Blog Application using React, Node.js, and Express.",
+      link:"https://www.linkedin.com/in/aswanthkumar05/overlay/1770961509378/single-media-viewer/?profileId=ACoAAErEVygBGJAMLSVGX1to4rG6_KAu_Ved-Ig"
     }
   ];
 
