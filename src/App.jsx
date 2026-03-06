@@ -2,6 +2,7 @@ import React from 'react';
 import NavigationBar from './NavigationBar';
 import { NavLink } from 'react-router-dom';
 import './Home.css';
+import resume from './assets/AswanthRes.pdf';
 import Footer from './Footer';
 import profileImg from '../images/Photo_Ak.jpg'
 const App = () => {
@@ -9,14 +10,14 @@ const App = () => {
     <>
       <NavigationBar />
       <section className="home-section container-fluid py-5">
-        <div className="container">
-          <div className="row align-items-center justify-content-between min-vh-100">
+        <div className="container fixed">
+          <div className="row align-items-center justify-content-between min-vh-50">
 
             {/* 👤 Text Content */}
             <div className="col-lg-6 col-md-7 text-center text-lg-start mb-5 mb-lg-0">
               <div className="hero-content">
                 <h5 className="text-uppercase text-primary fw-semibold mb-3">
-                  Front-End Developer
+                  Full Stack Developer
                 </h5>
                 <h1 className="display-4 fw-bold text-white mb-4">
                   Hi, I'm <span className="text-warning">J Aswanth</span> Kumar
@@ -31,12 +32,13 @@ const App = () => {
                     View Projects
                   </NavLink>
                   <a
-                    href="/J Aswanth Kumar 3_compressed.pdf"
-                    download
-                    className="btn btn-outline-light btn-lg px-4"
-                  >
-                    Download CV
-                  </a>
+  href={resume}
+   download="Aswanth_Resume.pdf"
+  className="btn btn-outline-light btn-lg px-4"
+>
+  Download CV
+</a>
+                 
                 </div>
               </div>
             </div>

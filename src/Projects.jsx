@@ -16,7 +16,13 @@ export default function Projects() {
   const [showAll, setShowAll] = useState(false);
 
   const Data = [
-    {
+   
+   {
+      name:"Blog Website",
+      Image:akImg,
+      description:"Developed a full-stack Blog Application using React, Node.js, and Express.",
+      link:"https://www.linkedin.com/in/aswanthkumar05/overlay/1770961509378/single-media-viewer/?profileId=ACoAAErEVygBGJAMLSVGX1to4rG6_KAu_Ved-Ig"
+    }, {
       name: "Recipe Finder",
       Image: recipeImg,
       description: "A responsive recipe discovery website built with React.js and Bootstrap. Users can browse, filter, and explore various recipes with ease.",
@@ -51,11 +57,6 @@ export default function Projects() {
       Image: petImg,
       description: "A playful and informative pet shop landing page using Next.js and Bootstrap. Features include pet categories, offers, and contact details.",
       link: "https://aswanthkumar486.github.io/Out-Pet-Shop/",
-    },{
-      name:"Blog Website",
-      Image:akImg,
-      description:"Developed a full-stack Blog Application using React, Node.js, and Express.",
-      link:"https://www.linkedin.com/in/aswanthkumar05/overlay/1770961509378/single-media-viewer/?profileId=ACoAAErEVygBGJAMLSVGX1to4rG6_KAu_Ved-Ig"
     }
   ];
 

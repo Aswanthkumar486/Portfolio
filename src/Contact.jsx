@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 import './Contact.css';
-
+import resume from './assets/AswanthRes.pdf'
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
@@ -77,8 +77,8 @@ export default function Contact() {
         {/* Download CV */}
         <div className="text-center mt-4">
           <a
-            href="/J Aswanth Kumar 3_compressed.pdf"
-            download
+            href={resume}
+            download="ak_res.pdf"
             className="btn btn-success px-4 py-2 fw-bold rounded-pill"
           >
             Download CV
