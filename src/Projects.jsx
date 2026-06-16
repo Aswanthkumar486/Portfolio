@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import NavigationBar from "./NavigationBar";
+import Footer from "./Footer";
 import "./Projects.css";
 
 // Importing images
+import scrapImg from "../images/Scrap-Management.png";
 import dentalImg from "../images/Dental-Clinc.png";
 import recipeImg from "../images/Reciepe.png";
 import weatherImg from "../images/Weather (2).png";
@@ -10,115 +12,137 @@ import TravelImg from "../images/Travel-Agency.png";
 import SaloonImg from '../images/Spa-Saloon.png';
 import petImg from "../images/Pet-Shop.png";
 import akImg from "../images/Photo_Ak.jpg";
-import Footer from "./Footer";
 
 export default function Projects() {
   const [showAll, setShowAll] = useState(false);
 
-  const Data = [
-   
-   {
-      name:"Blog Website",
-      Image:akImg,
-      description:"Developed a full-stack Blog Application using React, Node.js, and Express.",
-      link:"https://www.linkedin.com/in/aswanthkumar05/overlay/1770961509378/single-media-viewer/?profileId=ACoAAErEVygBGJAMLSVGX1to4rG6_KAu_Ved-Ig"
-    }, {
-      name: "Recipe Finder",
-      Image: recipeImg,
-      description: "A responsive recipe discovery website built with React.js and Bootstrap. Users can browse, filter, and explore various recipes with ease.",
-      link: "https://aswanthkumar486.github.io/NewRecipe-ReactApp/",
-    },
-    {
-      name: "GlowNex Website",
-      Image: SaloonImg,
-      description: "A luxurious salon landing page created using Next.js and Tailwind CSS. Features include service highlights, appointment CTA, and responsive design.",
-      link: "https://aswanthkumar486.github.io/Out-Saloon/",
-    },
-    {
-      name: "Weather App",
-      Image: weatherImg,
-      description: "A React-based weather application using OpenWeather API. Delivers real-time weather updates with a clean and responsive UI.",
-      link: "https://aswanthkumar486.github.io/Web-Weather/",
-    },
-    {
-      name: "Travel Agency",
-      Image: TravelImg,
-      description: "A modern travel agency landing page built with Next.js and Tailwind CSS. Highlights destinations, offers, and travel packages in a visually engaging layout.",
-      link: "https://aswanthkumar486.github.io/Out-Travel/",
-    },
-    {
-      name: "Dental Clinic Website",
-      Image: dentalImg,
-      description: "A professional dental clinic website built with Next.js and Bootstrap. Includes sections for services, about, testimonials, and contact.",
-      link: "https://aswanthkumar486.github.io/Web-DentalClinic/",
-    },
-    {
-      name: "Pet Shop Website",
-      Image: petImg,
-      description: "A playful and informative pet shop landing page using Next.js and Bootstrap. Features include pet categories, offers, and contact details.",
-      link: "https://aswanthkumar486.github.io/Out-Pet-Shop/",
-    }
-  ];
+const Data = [
+  {
+    name: "Scrap Management System",
+    Image: scrapImg,
+    description:
+      "Built a full-stack scrap management platform using React.js, Node.js, Express.js, and MongoDB. Features include GST billing, scrap price calculation, inventory tracking, purchase management, and invoice generation.",
+    link: "https://scrap-management-system-ochre.vercel.app/",
+  },
+
+  {
+    name: "Full Stack Blog Application",
+    Image: akImg,
+    description:
+      "Developed a role-based blogging platform using React.js, Node.js, Express.js, MySQL, and JWT Authentication. Implemented secure login, authorization, CRUD operations, and REST APIs.",
+    link: "YOUR_GITHUB_OR_LIVE_LINK",
+  },
+
+  {
+    name: "Weather Application",
+    Image: weatherImg,
+    description:
+      "Built a responsive weather application using React.js and OpenWeather API. Displays real-time weather data, temperature, humidity, and location-based forecasts.",
+    link: "https://aswanthkumar486.github.io/Web-Weather/",
+  },
+
+  {
+    name: "Recipe Finder",
+    Image: recipeImg,
+    description:
+      "Developed a React.js recipe search application with filtering and responsive design. Users can discover recipes and view detailed cooking instructions.",
+    link: "https://aswanthkumar486.github.io/NewRecipe-ReactApp/",
+  },
+
+
+  {
+    name: "Travel Agency Website",
+    Image: TravelImg,
+    description:
+      "Modern travel agency landing page built using Next.js and Tailwind CSS featuring destinations, packages, offers, and responsive design.",
+    link: "https://aswanthkumar486.github.io/Out-Travel/",
+  },
+
+  {
+    name: "Dental Clinic Website",
+    Image: dentalImg,
+    description:
+      "Professional healthcare website built with Next.js and Bootstrap including services, doctors, testimonials, appointment booking, and contact information.",
+    link: "https://aswanthkumar486.github.io/Web-DentalClinic/",
+  },
+
+  {
+    name: "Pet Shop Website",
+    Image: petImg,
+    description:
+      "Responsive pet shop website built using Next.js and Bootstrap featuring pet categories, offers, services, and contact details.",
+    link: "https://aswanthkumar486.github.io/Out-Pet-Shop/",
+  },
+];
 
   const visibleProjects = showAll ? Data : Data.slice(0, 3);
 
   return (
-    <div className="projects bg-dark min-vh-100 py-4">
+    <div className="projects-page">
       <NavigationBar />
-      <div className="container">
-        <div className="row mb-4">
-          <div className="col">
-            <h2 className="text-light display-4 fw-bold text-center mb-5">My Projects</h2>
+      
+      <section className="projects-section">
+        <div className="container">
+          <div className="projects-header">
+            <div className="badge-container mb-3">
+              <span className="badge-pulse">🚀 Portfolio</span>
+            </div>
+            <h2 className="projects-title">My Projects</h2>
+            <p className="projects-subtitle">
+              Here are some of my recent works and projects I've built
+            </p>
           </div>
-        </div>
 
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          {visibleProjects.map((data, index) => (
-            <div key={index} className="col">
-              <div className="card h-100 project-card shadow-lg border-0">
-                <div className="overflow-hidden" style={{ height: "200px" }}>
-                  <img 
-                    src={data.Image} 
-                    className="card-img-top h-100 w-100 object-fit-cover" 
-                    alt={data.name} 
-                  />
-                </div>
-                <div className="card-body d-flex flex-column">
-                  <h5 className="card-title fw-bold text-primary">{data.name}</h5>
-                  <p className="card-text text-muted flex-grow-1">{data.description}</p>
-                  <a 
-                    href={data.link} 
-                    className="btn btn-outline-primary mt-auto align-self-start"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    View Project <i className="bi bi-arrow-right ms-2"></i>
-                  </a>
+          <div className="row g-4">
+            {visibleProjects.map((data, index) => (
+              <div key={index} className="col-12 col-md-6 col-lg-4">
+                <div className="project-card">
+                  <div className="project-image-wrapper">
+                    <img 
+                      src={data.Image} 
+                      className="project-image" 
+                      alt={data.name} 
+                    />
+                    <div className="project-overlay">
+                      <span className="project-overlay-text">View Project</span>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h5 className="project-title">{data.name}</h5>
+                    <p className="project-description">{data.description}</p>
+                    <a 
+                      href={data.link} 
+                      className="project-link"
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      View Project <span className="project-link-icon">→</span>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <div className="row mt-5">
-          <div className="col text-center">
+          <div className="show-more-wrapper">
             <button 
-              className={`btn btn-${showAll ? 'outline-light' : 'primary'} px-4 py-2 fw-bold`}
+              className="show-more-btn"
               onClick={() => setShowAll(!showAll)}
             >
               {showAll ? (
                 <>
-                  <i className="bi bi-chevron-up me-2"></i> Show Less
+                  <span className="btn-icon">↑</span> Show Less
                 </>
               ) : (
                 <>
-                  <i className="bi bi-chevron-down me-2"></i> Show More Projects
+                  <span className="btn-icon">↓</span> Show More Projects
                 </>
               )}
             </button>
           </div>
         </div>
-      </div>
+      </section>
+
       <Footer />
     </div>
   );

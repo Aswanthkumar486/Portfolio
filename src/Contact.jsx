@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 import './Contact.css';
-import resume from './assets/AswanthRes.pdf'
+import resume from './assets/AswanthRes.pdf';
+
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
@@ -17,72 +18,101 @@ export default function Contact() {
   };
 
   return (
-    <div className="containers" style={{ backgroundColor: "black", minHeight: "100vh" }}>
+    <div className="contact-page">
       <NavigationBar />
 
-      <div className="container py-5 text-white">
-        <h2 className="text-center mb-4 animate-name">Contact Me</h2>
+      <div className="contact-container">
+        <div className="container">
+          <div className="contact-header">
+            <div className="badge-container mb-3">
+              <span className="badge-pulse">📬 Get in Touch</span>
+            </div>
+            <h2 className="contact-title">Contact Me</h2>
+            <p className="contact-subtitle">
+              Have a question or want to work together? Let's connect!
+            </p>
+          </div>
 
-        <form onSubmit={handleSubmit} className="mx-auto bg-dark p-4 rounded shadow-lg" style={{ maxWidth: '500px' }}>
-          <div className="mb-3">
-            <input
-              type="text"
-              name="name"
-              className="form-control"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <div className="contact-card">
+                <form onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label htmlFor="name">Your Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      className="form-control"
+                      placeholder="Enter your name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="form-control"
+                      placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="message">Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      className="form-control"
+                      placeholder="Write your message here..."
+                      rows="5"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <button type="submit" className="submit-btn">
+                    <span className="btn-icon">✉️</span> Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
-          <div className="mb-3">
-            <input
-              type="email"
-              name="email"
-              className="form-control"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <textarea
-              name="message"
-              className="form-control"
-              placeholder="Your Message"
-              rows="4"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="d-grid">
-            <button type="submit" className="btn btn-primary fw-bold">
-              Send Message
-            </button>
-          </div>
-        </form>
 
-        {/* Social Icons */}
-        <div className="text-center mt-5">
-          <a href="https://github.com/Aswanthkumar486" target="_blank" rel="noopener noreferrer" className="text-light mx-3 fs-4">
-            <i className="bi bi-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/aswanthkumar05" target="_blank" rel="noopener noreferrer" className="text-light mx-3 fs-4">
-            <i className="bi bi-linkedin"></i>
-          </a>
-        </div>
+          {/* Social Icons & CV */}
+          <div className="contact-footer">
+            <div className="social-links">
+              <a 
+                href="https://github.com/Aswanthkumar486" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-link github"
+              >
+                <i className="bi bi-github"></i>
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/aswanthkumar05" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-link linkedin"
+              >
+                <i className="bi bi-linkedin"></i>
+              </a>
+            </div>
 
-        {/* Download CV */}
-        <div className="text-center mt-4">
-          <a
-            href={resume}
-            download="ak_res.pdf"
-            className="btn btn-success px-4 py-2 fw-bold rounded-pill"
-          >
-            Download CV
-          </a>
+            <a
+              href={resume}
+              download="ak_res.pdf"
+              className="cv-btn"
+            >
+              📄 Download CV
+            </a>
+          </div>
         </div>
       </div>
 

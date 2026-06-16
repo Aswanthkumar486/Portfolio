@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Nav.css'; // Make sure to style things like hover, active, animation
+import './Nav.css';
 
 export default function NavigationBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function NavigationBar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
       <div className="container-fluid">
         {/* Logo / Brand */}
-        <NavLink className="navbar-brand fw-bold fs-4 animate-name text-warning" to="/">
+        <NavLink className="navbar-brand fw-bold fs-4 animate-name" to="/">
           J Aswanth Kumar
         </NavLink>
 
@@ -42,7 +42,7 @@ export default function NavigationBar() {
                       `nav-link px-3 ${isActive ? 'text-warning fw-semibold' : 'text-white'}`
                     }
                     to={path}
-                    onClick={() => setIsOpen(false)} // Close navbar on link click
+                    onClick={() => setIsOpen(false)}
                   >
                     {labels[index]}
                   </NavLink>

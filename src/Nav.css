@@ -1,40 +1,342 @@
-/* @keyframes fadeSlide {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* ========= Navigation Bar Styles ========= */
+
+/* Custom Navbar Background */
+.navbar {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 12px 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.95) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* ========= Animated Name / Brand ========= */
+.animate-name {
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 3s linear infinite;
+  display: inline-block;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.animate-name:hover {
+  transform: scale(1.05);
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
   }
-  
-  .animated-name {
-    color: white;
-    animation: fadeSlide 1.5s ease-in-out forwards;
-  } */
+}
+
+/* ========= Brand Underline Effect ========= */
+.animate-name::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff1361, #fff800);
+  transition: width 0.3s ease;
+}
+
+.animate-name:hover::after {
+  width: 100%;
+}
+
+/* ========= Navbar Toggler ========= */
+.navbar-toggler {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  border-color: #ff1361;
+  transform: rotate(90deg);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* ========= Nav Links ========= */
+.nav-link {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 16px !important;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff1361, #fff800);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::before {
+  width: 60%;
+}
+
+.nav-link:hover {
+  color: #ffcc00 !important;
+  transform: translateY(-2px);
+}
+
+/* Active Link Styles */
+.nav-link.text-warning {
+  color: #ffcc00 !important;
+  position: relative;
+}
+
+.nav-link.text-warning::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff1361, #fff800);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  animation: activePulse 2s ease-in-out infinite;
+}
+
+@keyframes activePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ========= Nav Items Container ========= */
+.navbar-nav {
+  gap: 5px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+/* ========= Dropdown/Submenu Hover ========= */
+.nav-item:hover .nav-link {
+  color: #ffcc00 !important;
+}
+
+/* ========= Mobile Responsive ========= */
+
+/* 📱 Small Devices */
+@media (max-width: 576px) {
   .animate-name {
-    text-transform: uppercase;
-    background-image: linear-gradient(
-      -225deg,
-      #231557 0%,
-      #44107a 29%,
-      #ff1361 67%,
-      #fff800 100%
-    );
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    animation: textclip 2s linear infinite;
-    display: inline-block;
-    font-size: 25px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
   }
-  
-  @keyframes textclip {
-    to {
-      background-position: 200% center;
-    }
+
+  .navbar {
+    padding: 8px 0;
   }
-  
+
+  .nav-link {
+    padding: 12px 16px !important;
+    font-size: 0.95rem;
+    border-radius: 6px;
+  }
+
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: none;
+  }
+
+  .nav-link::before {
+    display: none;
+  }
+
+  .nav-link.text-warning::after {
+    width: 40%;
+  }
+
+  .navbar-nav {
+    gap: 2px;
+    padding: 10px 0;
+  }
+
+  .navbar-collapse {
+    background: rgba(10, 10, 10, 0.98);
+    border-radius: 12px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* 📱 Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+  .animate-name {
+    font-size: 22px;
+  }
+
+  .nav-link {
+    padding: 10px 14px !important;
+  }
+
+  .navbar-collapse {
+    background: rgba(10, 10, 10, 0.98);
+    border-radius: 12px;
+    margin-top: 10px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .navbar-nav {
+    gap: 3px;
+  }
+}
+
+/* 🖥️ Desktop */
+@media (min-width: 992px) {
+  .navbar {
+    padding: 15px 0;
+  }
+
+  .nav-link {
+    margin: 0 5px;
+  }
+
+  .nav-link:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ========= Animation for Mobile Menu ========= */
+.navbar-collapse {
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-collapse.show {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========= Sticky Navbar Shadow ========= */
+.sticky-top {
+  z-index: 1050;
+}
+
+/* ========= Scroll Effect (Optional) ========= */
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.95) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* ========= Custom Scrollbar for Nav ========= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff1361, #fff800);
+  border-radius: 10px;
+}
+
+/* ========= Accessibility ========= */
+.nav-link:focus-visible {
+  outline: 2px solid #ffcc00;
+  outline-offset: 2px;
+}
+
+/* ========= Loading Animation ========= */
+@keyframes fadeInNav {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  animation: fadeInNav 0.6s ease-out forwards;
+}
+
+/* ========= Hover Glow Effect ========= */
+.nav-item .nav-link.text-warning {
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+}
+
+.nav-item .nav-link.text-white:hover {
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.2);
+}
+
+/* ========= Brand Gradient Fix ========= */
+.navbar-brand.animate-name {
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 3s linear infinite;
+}
+
+/* ========= Optional: Navbar Divider ========= */
+.navbar-divider {
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar-divider {
+    display: none;
+  }
+}

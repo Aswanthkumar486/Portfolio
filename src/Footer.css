@@ -1,28 +1,356 @@
+/* ========= Footer Container ========= */
 .custom-footer {
   width: 100%;
-  height: 60px;
-  background-color: #111;
-  color: white;
-  padding: 15px 20px;
-  font-size: 0.9rem;
+  background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+  color: #ffffff;
+  padding: 30px 20px 20px;
   position: relative;
-  bottom: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+/* Animated Gradient Border */
+.custom-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ff88, #00ccff, #7b2ffc, transparent);
+  animation: borderSlide 4s linear infinite;
+}
+
+@keyframes borderSlide {
+  0% { transform: translateX(-33%); }
+  100% { transform: translateX(33%); }
+}
+
+/* ========= Footer Container ========= */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========= Footer Content ========= */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ========= Brand Section ========= */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .brand-circle {
-  display: inline-block;
-  background-color: #fff;
-  color: #000;
-  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #00ff88, #00ccff);
+  color: #0a0a0a;
+  font-weight: 700;
+  font-size: 1.1rem;
   border-radius: 50%;
-  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: default;
 }
 
-.social-icons a {
-  color: #bbb;
-  transition: color 0.3s ease;
+.brand-circle:hover {
+  transform: rotate(360deg) scale(1.1);
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
 }
 
-.social-icons a:hover {
-  color: #00ffcc;
+.brand-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/* ========= Social Links ========= */
+.footer-social {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.social-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #bbbbbb;
+  font-size: 1.3rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.05);
+  text-decoration: none;
+}
+
+/* Individual Social Colors */
+.social-link.github:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+}
+
+.social-link.linkedin:hover {
+  background: rgba(0, 119, 181, 0.15);
+  border-color: #0077b5;
+  color: #0077b5;
+  box-shadow: 0 8px 25px rgba(0, 119, 181, 0.25);
+}
+
+.social-link.email:hover {
+  background: rgba(234, 67, 53, 0.15);
+  border-color: #ea4335;
+  color: #ea4335;
+  box-shadow: 0 8px 25px rgba(234, 67, 53, 0.25);
+}
+
+/* ========= Social Tooltip ========= */
+.social-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.social-link:hover .social-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* ========= Divider ========= */
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  margin: 20px 0;
+}
+
+/* ========= Copyright ========= */
+.footer-copyright {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-copyright p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-tagline {
+  color: rgba(255, 255, 255, 0.3) !important;
+  font-size: 0.8rem !important;
+}
+
+.footer-tagline span {
+  color: #ff1361;
+  display: inline-block;
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* ========= Responsive Design ========= */
+
+/* 📱 Extra Small Devices */
+@media (max-width: 576px) {
+  .custom-footer {
+    padding: 20px 15px 15px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .footer-brand {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .brand-circle {
+    width: 35px;
+    height: 35px;
+    font-size: 0.95rem;
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
+  }
+
+  .footer-social {
+    gap: 15px;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .footer-copyright {
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .footer-copyright p {
+    font-size: 0.75rem;
+  }
+
+  .social-tooltip {
+    display: none;
+  }
+}
+
+/* 📱 Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+  .footer-content {
+    gap: 15px;
+  }
+
+  .footer-brand {
+    gap: 10px;
+  }
+
+  .brand-circle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .social-link {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+
+  .footer-copyright {
+    gap: 8px;
+  }
+
+  .social-tooltip {
+    display: none;
+  }
+}
+
+/* 🖥️ Desktop */
+@media (min-width: 769px) {
+  .social-link {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+
+  .brand-circle {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ========= Animation ========= */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-footer {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.footer-content,
+.footer-divider,
+.footer-copyright {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.footer-content { animation-delay: 0.1s; }
+.footer-divider { animation-delay: 0.2s; }
+.footer-copyright { animation-delay: 0.3s; }
+
+/* ========= Hover Effects ========= */
+.footer-brand:hover .brand-circle {
+  animation: spin 0.6s ease;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ========= Accessibility ========= */
+.social-link:focus-visible {
+  outline: 2px solid #00ff88;
+  outline-offset: 3px;
+}
+
+/* ========= Scrollbar ========= */
+.custom-footer::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-footer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-footer::-webkit-scrollbar-thumb {
+  background: #00ff88;
+  border-radius: 10px;
 }

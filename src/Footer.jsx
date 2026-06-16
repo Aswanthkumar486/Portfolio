@@ -4,56 +4,59 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-white py-4 mt-auto w-100">
-      <div className="container-fluid px-4">
-        <div className="row align-items-center justify-content-between">
-
+    <footer className="custom-footer">
+      <div className="footer-container">
+        <div className="footer-content">
           {/* Brand */}
-          <div className="col-md-auto mb-3 mb-md-0 d-flex align-items-center">
-            <span className="bg-warning text-dark fw-bold px-3 py-2 rounded-circle me-2">J</span>
-            <span className="fw-bold fs-6">J. Aswanth Kumar</span>
+          <div className="footer-brand">
+            <span className="brand-circle">J</span>
+            <span className="brand-name">J. Aswanth Kumar</span>
           </div>
 
           {/* Social & Contact Icons */}
-          <div className="col-md-auto text-md-end d-flex align-items-center justify-content-md-end gap-3">
+          <div className="footer-social">
             <a
               href="https://github.com/Aswanthkumar486"
               target="_blank"
               rel="noreferrer"
-              className="text-white fs-5"
+              className="social-link github"
               title="GitHub"
             >
               <FaGithub />
+              <span className="social-tooltip">GitHub</span>
             </a>
             <a
               href="https://www.linkedin.com/in/aswanthkumar05"
               target="_blank"
               rel="noreferrer"
-              className="text-white fs-5"
+              className="social-link linkedin"
               title="LinkedIn"
             >
               <FaLinkedin />
+              <span className="social-tooltip">LinkedIn</span>
             </a>
             <a
               href="mailto:kumaraswanth486@gmail.com"
-              className="text-white fs-5"
+              className="social-link email"
               title="Email"
             >
               <FaEnvelope />
+              <span className="social-tooltip">Email</span>
             </a>
           </div>
         </div>
 
         {/* Divider */}
-        <hr className="bg-secondary my-3" />
+        <div className="footer-divider"></div>
 
         {/* Copyright */}
-        <div className="row">
-          <div className="col text-center">
-            <small className="text-secondary">
-              © {new Date().getFullYear()} J. Aswanth Kumar. All rights reserved.
-            </small>
-          </div>
+        <div className="footer-copyright">
+          <p>
+            © {new Date().getFullYear()} J. Aswanth Kumar. All rights reserved.
+          </p>
+          <p className="footer-tagline">
+            Built with ❤️ using React
+          </p>
         </div>
       </div>
     </footer>
